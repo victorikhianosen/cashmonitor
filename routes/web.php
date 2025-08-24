@@ -23,6 +23,8 @@ Route::middleware('auth')->name('admin.')->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+    Route::get('/dashboard/transactions', [DashboardController::class, 'transactionsJson'])
+        ->name('dashboard.transactions');
 
     Route::middleware('admin')->group(function () {
         Route::get('users', [AuthController::class, 'users'])->name('user');
